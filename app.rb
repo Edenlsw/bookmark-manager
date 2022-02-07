@@ -14,6 +14,14 @@ class BookmarkManager < Sinatra::Base
     'test page'
     end
 
+    get "/bookmarks" do
+      bookmarks = [
+        "https://www.google.com",
+        "https://www.asos.com"
+      ]
+      bookmarks.join
+    end
+
   run! if app_file == $0
 end
 
