@@ -10,6 +10,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+
+
 # tell capybara to talk to BookManager
 Capybara.app =BookmarkManager
 

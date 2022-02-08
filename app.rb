@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
   configure :development do 
@@ -7,21 +8,19 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/' do
-    'hello World'
+    'hello World' 
+    
   end
 
   get "/test" do 
     'test page'
     end
 
-    get "/bookmarks" do
-      bookmarks = [
-        "https://www.google.com",
-        "https://www.asos.com"
-      ]
-      bookmarks.join
-    end
+  get '/bookmarks' do
+    @bookmarks = Bookmark.all
+    erb :'/bookmarks/index'
+  end
+ 
 
   run! if app_file == $0
 end
-
